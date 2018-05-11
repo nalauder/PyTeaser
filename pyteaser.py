@@ -89,7 +89,7 @@ class Summarizer():
         return self.summaries
 
     def get_formatted_summary(self):
-        return self.summaries.join("")
+        return "".join(self.summaries)
 
     def summarize_url(self):
         try:
@@ -104,7 +104,7 @@ class Summarizer():
         self.title = self.article.title
         self.text = self.article.cleaned_text
 
-        self.summaries = self.summarize_text()
+        self.summarize_text()
 
     def summarize_text(self):
         parser = Input_Parser(self.title, self.text)
