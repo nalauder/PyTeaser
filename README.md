@@ -12,11 +12,26 @@ Summaries are created by ranking sentences in a news article according to how re
 - Length of the sentence
 
 
+# Cloning Repo
+
+`git clone git@gitlab.ecs.vuw.ac.nz:swen301-2018/laudernich1/SWEN301-Project-2.git`
+or
+`git clone https://gitlab.ecs.vuw.ac.nz/swen301-2018/laudernich1/SWEN301-Project-2.git`
+depending on authentication method
+
+change directory to root of the project.
+
+# Running
+
+For an easy run and installation process use the run file
+`./run'
+
+This will complete the installation and run the tests file
+
 # Installation:
-Requires Python 2.7. (Need Collections.Counter)
-```
-sudo pip install pyteaser
-```
+Requires Python 3. 
+
+`python setup.py install --user`
 
 These dependency packages will be automatically installed:
 ```
@@ -25,30 +40,26 @@ lxml
 cssselect
 jieba
 beautifulsoup
-```
-Note: if you're installing on Windows, you have to install one of the dependency package lxml manually using:
-
-```
-easy_install lxml==2.3.3
+goose3
 ```
 
-More information about this issue here: https://github.com/xiaoxu193/PyTeaser/issues/17
+# Run Existing Tests
 
+`python test.py`
 
 # Usage:
 ## sample command:
+`python sample.py`
+or
 ```Python
->>> from pyteaser import SummarizeUrl
->>> url = 'http://www.huffingtonpost.com/2013/11/22/twitter-forward-secrecy_n_4326599.html'
->>> summaries = SummarizeUrl(url)
->>> print summaries
+>>> from pyteaser import Summarizer
+>>> url = 'https://www.stuff.co.nz/world/americas/103853951/americas-nuclear-mountain-the-most-secure-facility-in-the-world'
+>>> summaries = Summarizer(url=url)
+>>> print(summaries.summarize_article())
 
 ```
 
 ## output
 ```
-["Twitter\'s move is the latest response from U.S. Internet firms following disclosures by former spy agency contractor Edward Snowden about widespread, classified U.S. government surveillance programs.", "\\"Since then, it has become clearer and clearer how important that step was to protecting our users\' privacy.\\"", "The online messaging service, which began scrambling communications in 2011 using traditional HTTPS encryption, said on Friday it has added an advanced layer of protection for HTTPS known as \\"forward secrecy.\\"", "\\"A year and a half ago, Twitter was first served completely over HTTPS,\\" the company said in a blog posting.", " \\"I\'m glad this is the direction the industry is taking.\\" \\n\\n(Reporting by Jim Finkle; editing by Andrew Hay)"]
-
+['\n\nThe operation has always been run out of Ent or Peterson Air Force Base in Colorado Springs, never Cheyenne Mountain, said Laslie.', 'Rose, the base deputy director, rejected the notion that Cheyenne Mountain is a relic.', 'Asked whether Cheyenne Mountain is vulnerable to more powerful modern nuclear warheads, Rose answered indirectly: "I don\'t think we would be open if it was".\n\n2.', 'To mark the occasion, Norad offered a tour of Cheyenne Mountain on Thursday.', '"We like to say it\'s the most secure facility in the world," said Steve Rose, deputy director of the base.']
 ```
-
-you can use Summarize(title, text) directly if you already have the text and the title. Otherwise you must install Python Goose to extract text from url.
