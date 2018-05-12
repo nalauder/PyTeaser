@@ -11,9 +11,9 @@ class TestSummarize(TestCase):
         self.assertEqual(Summarizer(title=article_title, text=article_text).summarize_article(),
                          summarised_article_text)
     def testURLs(self):
-        urls = ('http://www.huffingtonpost.com/2013/11/22/twitter-forward-secrecy_n_4326599.html',
-                'http://www.bbc.co.uk/news/world-europe-30035666',
-                'http://www.bbc.co.uk/news/magazine-29631332')
+        urls = ('https://www.stuff.co.nz/world/americas/103853951/americas-nuclear-mountain-the-most-secure-facility-in-the-world',
+                'https://www.tvnz.co.nz/one-news/new-zealand/time-check-your-ticket-lucky-powerball-winner-takes-home-18-million-jackpot',
+                'https://www.radionz.co.nz/news/sport/357230/crusaders-create-history-in-comeback-win')
 
         #just make sure it doesn't crash
         for url in urls:
